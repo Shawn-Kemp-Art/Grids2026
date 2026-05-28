@@ -102,7 +102,7 @@ if(new URLSearchParams(window.location.search).get('c')){qcolors = new URLSearch
 var qsize = "2";
 if(new URLSearchParams(window.location.search).get('s')){qsize = new URLSearchParams(window.location.search).get('s')}; //size
 var qcomplexity = R.random_int(1,10);
-if(new URLSearchParams(window.location.search).get('d')){qcomplexity = new URLSearchParams(window.location.search).get('d')}; //size
+if(new URLSearchParams(window.location.search).get('d')){qcomplexity = parseInt(new URLSearchParams(window.location.search).get('d'), 10)}; //size
 qcomplexity = qcomplexity+3;
 
 var qorientation =R.random_int(1,2) < 2 ? "portrait" : "landscape";
