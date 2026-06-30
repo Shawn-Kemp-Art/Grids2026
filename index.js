@@ -331,6 +331,11 @@ paper.view.autoUpdate = false;
 
 //---- Draw the Layers
 
+// Warm-up: force paper.js to yield/render once before the first Clipper boolean op.
+// Without this, the very first clipUnite/clipSubtract/clipIntersect (the z=0 frame in
+// drawFrame) silently returns empty and the bottom layer renders blank.
+paper.view.update();
+await new Promise(resolve => setTimeout(resolve, 0));
 
 for (z = 0; z < stacks; z++) {
     pz=z*prange;
